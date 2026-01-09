@@ -139,6 +139,7 @@ ssh -T git@github.com-personal
 ssh -T git@github.com-work
 
 # 3. Project Setup in VPS
+ 
 cd /var/www
 sudo mkdir project
 sudo chown -R $USER:$USER project
@@ -146,27 +147,29 @@ cd project
 
 
 Clone repository:
-
+```
 git clone git@github.com-work:username/repo.git .
-
+```
 
 Install dependencies:
-
+```
 npm install
 npm run build
-
+```
 # 4. Run Backend & Frontend Using PM2
 Backend (Node / Express)
+```
 pm2 start index.js --name backend
-
+```
 
 Backend runs on:
 
 http://localhost:5000
 
 Frontend (Next.js / React)
+```
 pm2 start npm --name frontend -- start
-
+```
 
 Frontend runs on:
 
@@ -184,8 +187,9 @@ Browser → Nginx (80 / 443)
           └── /api     → Backend  (5000)
 
 Create Nginx Config
+```
 sudo nano /etc/nginx/sites-available/project
-
+```
 ```nginx
 server {
     listen 80;
